@@ -4,7 +4,7 @@ interface LockScreenProps {
   onUnlock: () => void;
 }
 
-const CORRECT_PIN = "000000";
+const CORRECT_PIN = "200700";
 
 export default function LockScreen({ onUnlock }: LockScreenProps) {
   const [pin, setPin] = useState("");
