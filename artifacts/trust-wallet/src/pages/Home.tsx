@@ -20,8 +20,6 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#121212]">
-      <StatusBar />
-
       {/* Top bar */}
       <div className="flex items-center px-4 py-2 gap-3">
         <button onClick={() => setLocation("/settings")} className="w-9 h-9 flex items-center justify-center">
@@ -64,16 +62,6 @@ export default function HomePage() {
       {/* Total balance */}
       <div className="flex flex-col items-center py-2">
         <span className="text-white font-bold text-[28px]">{fmt(totalValue)}</span>
-        <button
-          onClick={() => setLocation("/edit-balance")}
-          className="flex items-center gap-1 mt-1 text-[#3dd68c] text-[12px] font-medium"
-        >
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#3dd68c" strokeWidth="2">
-            <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/>
-            <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
-          </svg>
-          Edit balances
-        </button>
       </div>
 
       {/* Action buttons */}
