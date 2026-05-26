@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Switch, Route, Router as WouterRouter } from "wouter";
 import { WalletProvider } from "@/context/WalletContext";
+import LockScreen from "@/pages/LockScreen";
 import HomePage from "@/pages/Home";
 import ReceivePage from "@/pages/Receive";
 import SendPage from "@/pages/Send";
@@ -27,13 +29,19 @@ function Router() {
 }
 
 function App() {
+  const [locked, setLocked] = useState(true);
+
   return (
     <WalletProvider>
       <div className="flex items-start justify-center min-h-screen bg-[#0a0a0a]">
         <div className="w-full max-w-[430px] min-h-screen bg-[#121212] relative overflow-x-hidden">
-          <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-            <Router />
-          </WouterRouter>
+          {locked ? (
+            <LockScreen onUnlock={() => setLocked(false)} />
+          ) : (
+            <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+              <Router />
+            </WouterRouter>
+          )}
         </div>
       </div>
     </WalletProvider>
